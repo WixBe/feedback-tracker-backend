@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import connectDB from "./db";
 import feedbackRoutes from "./routes/feedback";
+import userRoutes from "./routes/user";
 
 const app = express();
 connectDB();
@@ -10,7 +11,7 @@ connectDB();
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/feedback', feedbackRoutes);
+app.use('/feedback', feedbackRoutes, userRoutes);
 
 const PORT = process.env.PORT || 3000;
 
