@@ -1,14 +1,13 @@
 import express from 'express';
 import Feedback from '../models/Feedback';
-import connectDB from '../db';
 
 const router = express.Router();
 
 router.post(
     '/', async (req, res) => {
         try {
-            const { employee_id, feedbackText, rating } = req.body;
-            const feedback = new Feedback({ employee_id, feedbackText, rating });
+            const { user_id, recepient_id, feedbackText, rating } = req.body;
+            const feedback = new Feedback({ user_id, recepient_id, feedbackText, rating });
             await feedback.save();
             res.status(201).json({ message: 'Feedback submitted successfully' });
         } catch (error) {
