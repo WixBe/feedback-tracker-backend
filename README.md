@@ -1,5 +1,6 @@
 # Feedback Tracker Frontend
 
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Description
 
@@ -32,38 +33,46 @@ To set up the frontend locally, follow these steps:
 1. Clone the repository:
    ```bash
    git clone https://github.com/WixBe/feedback-tracker-frontend.git
-    ```
-
+   ```
 2. Navigate to the project directory:
    ```bash
-   cd Postmeow-frontend
+   cd Postmeow-backend
    ```
-3. Install dependencies
-    ```bash
-    npm install
-    ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
 4. Set up environment variables:
     - Create a .env file in the root directory.
-    - Add the following variables
+    - Add the following variables:
     ```code
-    REACT_APP_API_URL=http://localhost:4000
+    DATABASE_URL=postgresql://username:password@localhost:5432/feedback_tracker
+    PORT=4000
     ```
-5. Start the development server
-    ```bash
-    npm start
-    ```
-
+5. Run database migrations:
+   ```bash
+   npm run migrate
+   ```
+6. Start the server:
+   ```bash
+   npm run start
+   ```
+   
 ## Usage
 
-Visit http://localhost:3000 in your browser to interact with the application. Ensure that the backend server is running at http://localhost:4000. 
+The server will be available at http://localhost:4000. Use tools like Postman or cURL to interact with the API.
 
 ## Directory Structure
+
 ```plaintext
 .
-├── src/                # Source code for the application
-├── public/             # Public assets
+├── src/                # Source code for the backend
+├── config/             # Configuration files
 ├── tests/              # Unit and integration tests
-├── styles/             # CSS and styling files
-├── index.html          # Main HTML file
-└── README.md           # Project documentation
+├── docs/               # API documentation
+├── README.md           # Project documentation
+└── package.json        # Dependency and script management
 ```
+
+## API Documentation
+For detailed API documentation, refer to the docs/ directory or access the Swagger UI (if available).
